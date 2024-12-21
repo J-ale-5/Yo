@@ -1,0 +1,150 @@
+/* Estilo global */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('Fogata.jpg'); /* Ruta de la imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Altura mínima de la pantalla */
+}
+
+/* Encabezado */
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: rgba(0, 0, 128, 0.8); /* Color azul con algo de transparencia */
+    padding: 10px;
+    color: rgb(0, 153, 255);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para hacer que se destaque */
+    z-index: 1000;
+}
+
+header .logo img {
+    width: 50px;
+    height: auto;
+    margin-left: 20px; /* Ajusta el valor según la separación que desees */
+}
+
+header nav {
+    display: flex;
+    gap: 10px;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Contenedor principal */
+.contenedor {
+    margin-top: 20px;
+    padding: 20px; 
+    width: 90%;
+    max-width: 500px;
+    background-color: rgba(0, 174, 255, 0.9); /* Fondo azul con transparencia */
+    border: 1.5px solid black;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header {
+    padding: 10px; /* Ajuste de padding para el header */
+    background-color: #000080; /* Color de fondo del header */
+    color: white;
+    text-align: center;
+    border-bottom: 3px solid black; /* Añade un borde en la parte inferior */
+}
+
+/* Estilo del formulario */
+#group-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    justify-items: center;
+}
+
+#group-form label {
+    font-weight: bold;
+}
+
+#group-form input {
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#group-form input, #group-form button {
+    font-size: 14px; /* Tamaño de la fuente más pequeño */
+    padding: 5px; /* Reducir el padding para botones más compactos */
+}
+
+#group-form button {
+    padding: 8px 10px; 
+    background-color: #000080;
+    color: white;
+    border: none;    
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+#group-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Sección de Grupos Registrados */
+.group-info {
+    margin-top: 10px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    justify-self: center;
+}
+
+.group-info h2 {
+    font-weight: bold;
+}
+
+#group-info-list {
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    min-height: 50px;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .contenedor {
+        width: 90%;
+        padding: 20px;
+        margin: 0 auto;
+        border: 1px solid black;
+    }
+
+    #group-form label, #group-form input {
+        width: 100%; /* Los inputs y botones ocupan todo el ancho disponible */
+        max-width: 300px; /* Máximo ancho de los elementos en pantallas grandes */
+    }
+
+    #group-form button {
+        width: 90%; /* Los inputs y botones ocupan todo el ancho disponible */
+        max-width: 200px;
+    }
+}

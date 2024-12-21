@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="icon" href="Flor.jpg">
+    <link rel="stylesheet" href="Estilos.css">
+    <link rel="stylesheet" href="Registro.css">
+    <script src="Registro.js"></script>
+    <title>Scout</title>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">
+            <img src="Logo.jpg" alt="Logo Scout">
+            <h2 class="Diligente-Scout">"Scout de Corazon"</h2>
+        </a>
+        <nav>
+            <a href="BasesL.html" class="nav-link">Bases</a>
+            <a href="P.Registros.html" class="nav-link">Registros</a>
+            <a href="FechaHora.html" class="nav-link">Fecha y Hora</a>
+            <a href="Puntaje.html" class="nav-link">Puntajes</a>
+        </nav>
+    </header>
+        <div class="contenedor">
+            <div>
+                <h2 class="Registro">Registro de Grupos</h2>
+                    <div>
+                        <form id="group-form">
+                            <label for="group-name">Nombre de Grupo</label>
+                            <input type="text" id="group-name" required>
+                            <label for="designated-area">Ubicacion</label>
+                            <input type="text" id="designated-area" required>
+                            <button type="button" onclick="registerGroup()">Registrar</button>
+                            <button type="submit">Modificar </button>
+                            <button type="submit">Actulizar </button>
+                        </form>
+                        <div class="group-info">
+                            <h2>Grupos registrados</h2>
+                                <div id="group-info-list">
+                                    
+                                </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        
+</body>
+</html>

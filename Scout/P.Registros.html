@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="icon" href="Flor.jpg">
+    <link rel="stylesheet" href="Estilos.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #c300fff1;
+            color: #3528e7;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 700px;
+            margin: 20px auto;
+            background: #efaeff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 15px 15px 10px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #004d99;
+        }
+        form {
+            margin-bottom: 5px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input, button {
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #020202;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #0066cc;
+            color: #21cbff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #004d99;
+        }
+        .group-info, .leader-view {
+            margin-top: 20px;
+        }
+        .group-info div, .leader-view div {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">
+            <img src="Logo.jpg" alt="Logo Scout">
+            <h2 class="Diligente-Scout">"Jefe de Grupo Scout"</h2>
+        </a>
+        <nav>
+
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Registro de Grupos</h1>
+        <div id="auth-section">
+            <h2>Iniciar Sesión</h2>
+            <form id="login-form">
+                <label for="email">Correo Electrónico o Número de Celular</label>
+                <input type="text" id="email" required>
+                <button type="submit">Iniciar Sesión</button>
+            </form>
+        </div>
+
+        <div id="group-section" style="display: inline;">
+            <h2>Registrar Grupo</h2>
+            <form id="group-form">
+                <label for="group-name">Nombre del Grupo</label>
+                <input type="text" id="group-name" required>
+                <button type="submit">Registrar Grupo</button>
+            </form>
+
+            <div class="group-info">
+                <h2>Grupos Registrados </h2>
+                <div id="group-info-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            if (email) {
+                localStorage.setItem('user', email);
+                document.getElementById('auth-section').style.display = 'none';
+                document.getElementById('group-section').style.display = 'block';
+            }
+        });
+
+        document.getElementById('group-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const groupName = document.getElementById('group-name').value;
+            if (groupName) {
+                const groupInfoList = document.getElementById('group-info-list');
+                const newGroupInfo = document.createElement('div');
+                newGroupInfo.textContent = `Grupo: ${groupName}`;
+                groupInfoList.appendChild(newGroupInfo);
+
+                const leaderViewList = document.getElementById('leader-view-list');
+                const newLeaderView = document.createElement('div');
+                newLeaderView.textContent = `Grupo: ${groupName}`;
+                leaderViewList.appendChild(newLeaderView);
+
+                const existingData = JSON.parse(localStorage.getItem('groupData')) || [];
+                existingData.push({ groupName});
+                localStorage.setItem('groupData', JSON.stringify(existingData));
+            }
+        });
+
+        window.addEventListener('load', function() {
+            const user = localStorage.getItem('user');
+            if (user) {
+                document.getElementById('auth-section').style.display = 'none';
+                document.getElementById('group-section').style.display = 'block';
+
+                const existingData = JSON.parse(localStorage.getItem('groupData')) || [];
+                const groupInfoList = document.getElementById('group-info-list');
+                const leaderViewList = document.getElementById('leader-view-list');
+
+                existingData.forEach(data => {
+                    const newGroupInfo = document.createElement('div');
+                    newGroupInfo.textContent = `Grupo: ${data.groupName}`;
+                    groupInfoList.appendChild(newGroupInfo);
+
+                    const newLeaderView = document.createElement('div');
+                    newLeaderView.textContent = `Grupo: ${data.groupName}`;
+                    leaderViewList.appendChild(newLeaderView);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('Inicio_Scout.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+header, .contenedor {
+    margin-bottom: 60px; /* Espacio entre el encabezado y el cuadro */
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+}
+
+.contenedor {
+    margin-top: 80px; /* Espacio entre el cuadro y el encabezado */
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    max-width: 600px;
+    height: auto;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.contenedor form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contenedor form:first-of-type {
+    gap: 40px;
+}
+
+.contenedor button {
+    width: 100%;
+    max-width: 200px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: rgb(53, 134, 255);
+    border-radius: 10px;
+}
